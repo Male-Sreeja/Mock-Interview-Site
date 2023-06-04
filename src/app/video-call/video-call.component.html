@@ -1,0 +1,16 @@
+<div>
+    <h5></h5>
+  
+    <!-- Video & screen share container -->
+    <span>Id: {{peerId}}</span>
+    <div style="width: 1255px; height: 450px; border: 2px solid;" id="remote-video"></div>
+  
+    <br>
+    <div style="margin-top: 20px;">
+      <input type="text" placeholder=" Id" [(ngModel)]='peerIdShare' />
+      <div *ngIf="isFaculty()"><button class="btn btn-primary" (click)="connectWithPeer()">Join Call</button></div>&nbsp;
+      <div *ngIf="isFaculty()"><button class="btn btn-primary" (click)="get_Peer_Id()">Get Id</button></div>&nbsp;
+      <div *ngIf="isStudent()"><button class="btn btn-primary" (click)="sharePeerId(peerId)">Join Call</button></div>&nbsp;
+      <button class="btn btn-primary" (click)="screenShare()">Screen share</button>
+    </div>
+  </div>

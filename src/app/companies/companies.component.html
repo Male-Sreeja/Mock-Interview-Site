@@ -1,0 +1,47 @@
+<ul>
+    <li><a class="active" routerLink="/homepage"><img src="assets/images/home_logo.png" style="height: 30px; width:40px;"></a></li>
+    <li><a class="active" routerLink="/homepage"><img src="assets/images/back_b1.png" style="height: 30px; width:140px;"></a></li>
+    <!-- <li><a href="#news">Profile</a></li> -->
+    <li><a href="assets/recruitment_patterns.pdf" target="_blank" title="MockInterview">View Companies</a></li>
+    <!-- <li><a href="#about">About</a></li> -->
+    <div *ngIf="isAdmin()" class="addbtn"><li><button (click)="showForm()">Add</button></li></div> 
+    <div class="logout">
+    <li><a  routerLink="/login"><img src="assets/images/logout.png" style="height: 30px; width:40px;"></a></li>
+  </div>
+  </ul>
+ <body>
+    <form #cpForm="ngForm" (ngSubmit)="checkCmp(cpForm.value)">
+        <div class="overlay" *ngIf="show" >
+            <div class="content" >
+                <div class="close" (click)="closeForm()">
+                   &times; 
+                </div>
+                Company Name: <input type="text" class="form-control" ngModel name="newCmp" #newCmp=ngModel><br>
+                <button class="btn btn-primary mt-4">Submit</button>
+            </div>
+        </div>
+    </form>
+<table>
+    <tr *ngFor="let row of rows">
+        <td *ngFor="let col of numSequence(4);let i=index;">
+            <!-- <h1>{{row}}</h1>
+            <h1>{{i}}</h1> -->
+            <div *ngIf="(row*4)+i< n" class="card">
+                <!-- <h1>check</h1> -->
+                <h1><button (click)="cmpy_info((row*4)+i);" class="btn">{{cmpName()}}</button></h1>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+<!-- <p>Click the button to see the current date.</p>
+    <button onclick="getElementById('demo').innerHTML=Date()">What day is today?</button>
+    <p id="demo"></p> -->
+<!-- <h1>{{rows}}</h1>
+<h1>{{cmpName(0)}}</h1> -->
+<!---<div class="card">
+	<h1>State Street</h1>
+
+</div>
+<span *ngFor="let n of numSequence(6);
+           let i = index;">{{i}} </span> -->

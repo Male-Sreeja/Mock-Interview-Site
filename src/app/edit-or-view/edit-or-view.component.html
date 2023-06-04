@@ -1,0 +1,67 @@
+<!-- <table>
+    <tr>
+        <td>Roll No</td>
+        <td>Domain Focused</td>
+        <td>Questions Asked</td>
+        <td>Suggestions</td>
+    </tr>
+    <tr *ngFor="let row of cmp_fb">
+        <td>{{row.rollno}}</td>
+        <td>{{row.domins}}</td>
+        <td>{{row.questions}}</td>
+        <td>{{row.Sugg}}</td>
+    </tr>
+</table> -->
+<div class="nav">
+<ul>
+    <li><a class="active" routerLink="/homepage"><img src="assets/images/home_logo.png" style="height: 30px; width:40px;"></a></li>
+    <li><a class="active" routerLink="/companies"><img src="assets/images/back_b1.png"  style="height: 30px; width:140px;"></a></li>
+    <!-- <li><a href="#news">Profile</a></li> -->
+    <li><a href="assets/recruitment_patterns.pdf" target="_blank" title="MockInterview">View Companies</a></li>
+    <!-- <li><a href="#about">About</a></li> -->
+    <li><button (click)="showForm()">Add</button></li>
+    <div class="logout">
+    <li><a  routerLink="/login"><img src="assets/images/logout.png" style="height: 30px; width:40px;"></a></li>
+  </div>
+  </ul>
+</div>
+<br>
+<!-- <p class="title-ani">Interview Joy</p> -->
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<body>
+    <form #fbForm="ngForm" (ngSubmit)="addFb(fbForm.value)">
+    <div class="overlay" *ngIf="show" >
+        <div class="content" >
+            <div class="close" (click)="closeForm()">
+               &times; 
+            </div>
+            Roll No: <input type="text" class="form-control" ngModel name="rollno" #rollno=ngModel><br>
+            Domains Focused: <input type="text" class="form-control" ngModel name="domains" #domains=ngModel><br>
+            <form #quest="ngForm" (ngSubmit)="addQues(quest.value)">
+                Questions Asked: <input type="text" class="form-control" ngModel name="ques" #ques=ngModel><br>
+                <button class="btn btn-secondary">Add</button>
+            </form><br>
+
+            Suggestions: <input type="text" class="form-control" ngModel name="Sugg" #Sugg=ngModel>
+            <button class="btn btn-primary mt-4">Submit</button>
+        </div>
+    </div>
+</form>
+<div class="feedback">
+    <ul *ngFor="let row of cmp_fb" class="ul-card">
+        <li>
+            <!-- <div class="card"> -->
+            <h2>{{row.rollno}}</h2>
+            <h2>Domain Focused:&nbsp;{{row.domains}}</h2>
+            <h2>Questions Asked:</h2>
+            <ul *ngFor="let ques of row.questions">
+                <li>{{ques}}</li>
+            </ul>
+            <h2>Suggestions : &nbsp; {{row.Sugg}}</h2>
+            <!-- </div> -->
+        </li>
+    </ul>
+</div>
+</body>

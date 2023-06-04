@@ -1,0 +1,351 @@
+body{
+  margin: 0; height: 100%; overflow: hidden;
+  scroll-behavior: unset;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #808080;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgba(27, 87, 216, 0.733);
+  }
+  .logout{
+    float: right;
+}
+  
+  /* .active {
+    background-color: #04AA6D;
+  } */
+  .mydivouter{
+	position:absolute;
+    top:80px;
+    right:50px;
+	background: url("src/assets/images/viewCom1.png");
+    width: 100px;
+    height: 140px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+.mydivoverlap{
+    position: relative;
+    z-index: 1;
+}
+.mybuttonoverlap{
+	position: absolute;
+    z-index: 2;
+    top: 44px;
+    display: none;
+    left: 59px;	
+}
+.mydivouter:hover .mybuttonoverlap{ 
+	display:block;
+}
+.container {
+    position: absolute;
+    top: 80px;
+    right:20px;
+    width: 330px;
+    height: 200px;
+  }
+  
+  /* .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+  } */
+  
+  .container:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+  }
+  
+  .container img {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    top: 0px;
+    right: 0px;
+  }
+  
+  .title {
+    position: absolute;
+    width: 500px;
+    left: 0;
+    top: 120px;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    z-index: 1;
+    transition: top .5s ease;
+  }
+  
+  .container:hover .title {
+    top: 90px;
+  }
+  
+  .button {
+    position: absolute;
+    width: 500px;
+    right:-70px; 
+    top: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  
+  .button a {
+    width: 200px;
+    padding: 12px 48px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 119, 255, 0.829);
+    border: solid 2px white;
+    z-index: 1;
+  }
+  
+  .container:hover .button {
+    opacity: 1;
+  }
+  /*  */
+  .container1 {
+    position: absolute;
+    top: 380px;
+    right:100px;
+    width: 330px;
+    height: 200px;
+  }
+  
+  /* .overlay1 {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+  } */
+  
+  .container1:hover .overlay1 {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+   
+  }
+  
+  .container1 img {
+    position: relative;
+    width: 330px;
+    height: 200px;
+    top: -100px;
+    right: -69px;
+  }
+  
+  .title1 {
+    position: absolute;
+    width: 500px;
+    left: 0;
+    top: 120px;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    z-index: 1;
+    transition: top .5s ease;
+  }
+  
+  .container1:hover .title1 {
+    top: 90px;
+  }
+  
+  .button1 {
+    position: absolute;
+    border: none;
+    right:20px; 
+    top: 10px;
+    text-align: center;
+    opacity: 0;
+    /* background-color: blue; */
+    transition: opacity .35s ease;
+  }
+  
+  .button1 a {
+    width: 50px;
+    padding: 10px 44px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 119, 255, 0.829);
+    border: solid 2px white;
+    z-index: 1;
+  }
+  
+  .container1:hover .button1 {
+    opacity: 1;
+  }
+  ul .addbtn button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px; 
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+  }
+  .overlay{
+    z-index: 1;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .close{
+    position:relative;
+    top:-5%;
+    left:98%;
+    cursor: pointer;
+    color: red;
+  }
+  /* .home_wp img{
+    position: absolute;
+    top:0%;
+  } */
+  .wrapper .sidebar{
+    background: rgb(5, 68, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 235px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar .profile{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+
+.wrapper .sidebar .profile h3{
+  color: #ffffff;
+  margin: 10px 0 5px;
+}
+
+.wrapper .sidebar .profile p{
+  color: rgb(206, 240, 253);
+  font-size: 14px;
+}
+.closeBar{
+  position:relative;
+  top:0px;
+  left:210px;
+  cursor: pointer;
+  color:white;
+}
+.wrapper .sidebar ul{
+  position:relative;
+  background: transparent;
+  color: white;
+  border: lightgreen;
+  width: 80%;
+  left:15px;
+  text-align: center;
+  border-width: 2px;
+  border-style:double;
+}
+ul li button{
+  background: transparent;
+  color: white;
+  border: none;
+}
+ul li button :disabled{
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: not-allowed;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+/* .content{
+  background-color: white;
+  width:250px;
+  height:300px;
+  padding:20px;
+} */
+ .content .user-box {
+  position: relative;
+}
+.content .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.content .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+.content .user-box input:focus + label,
+.content .user-box input:valid + label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+.content select{
+  color: white;
+}
+.content select option{
+  background-color: white;
+  color: black;
+}

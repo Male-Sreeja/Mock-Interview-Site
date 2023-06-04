@@ -1,0 +1,65 @@
+<ul>
+    <li><a (click)="openBar()" style="cursor: pointer;">☰</a></li>
+    <li><a class="active" routerLink="/homepage"><img src="assets/images/home_logo.png" style="height: 30px; width:40px;"></a></li>
+    <li><a class="active" routerLink="/homepage"><img src="assets/images/back_b1.png" style="height: 30px; width:140px;"></a></li>
+    <!-- <li><a href="#news">Profile</a></li> -->
+    <li><a href="assets/recruitment_patterns.pdf" target="_blank" title="MockInterview">View Companies</a></li>
+    <div class="addbtn" *ngIf="!isAdmin()"><li><button (click)="showForm()" style="cursor: pointer;">Add Slots</button></li></div>
+    <!-- <li><a href="#about">About</a></li> -->
+    <!-- <div *ngIf="isAdmin()" class="addbtn"><li><button (click)="showForm()">Add</button></li></div>  -->
+    <div class="logout">
+    <li><a  routerLink="/login"><img src="assets/images/logout.png" style="height: 30px; width:40px;"></a></li>
+  </div>
+</ul>
+<form #slotsForm="ngForm" (ngSubmit)="addSlots(slotsForm.value)">
+    <div class="overlay" *ngIf="show" >
+        <div class="content" >
+            <div class="close" (click)="closeForm()">
+               &times; 
+            </div>
+            Add your Available Slots: <input type="datetime-local" class="form-control" ngModel name="slot" #slot=ngModel><br>
+            <button class="btn btn-primary mt-4">Submit</button>
+        </div>
+    </div>
+</form>
+<table>
+    <tr>
+        <th>Faculty Name</th>
+        <th>Faculty Email</th>
+        <th>Slots</th>
+        <!-- <th>Actions</th> -->
+    </tr>
+    <tr *ngFor = "let row of details">
+        <td>{{row.name}}</td>
+        <td>{{row.email}}</td>
+        <td>
+            <table class="slots1">
+                <tr *ngFor = "let slot of row.slots">
+                    <td *ngIf="!slot.isBooked"><button class="btn1" (click)="joinCall()">{{slot.datetime}}</button></td>
+                    <td *ngIf="slot.isBooked"><button disabled>{{slot.datetime}}</button></td>
+                </tr>
+            </table>
+        </td>
+        <!-- <td><button>Book</button></td> -->
+    </tr>
+</table>
+<div class="wrapper" *ngIf="open">
+    <div class="sidebar">
+        <div class="closeBar" (click)="closeBar()">☰</div>
+        <div class="profile">
+            <!-- <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture"> -->
+            <h3>{{user1.name}}</h3>
+            <p>{{user1.email}}</p>
+            <div *ngFor="let row of mySlots">
+            <ul *ngFor="let slot of row.slots">
+                <li *ngIf="isFutureTime(slot.datetime)"><button>{{slot.datetime}}</button></li>
+                <li *ngIf="isPastTime(slot.datetime)"><button (click)="joinCall()">{{slot.datetime}}-join</button></li>
+                <li *ngIf="isDisable(slot.datetime)"><button disabled style="cursor: not-allowed;">{{slot.datetime}}</button></li>
+                
+            </ul>
+            <p class="p">Please Click on the Time Slot with 'join' to start the call</p>
+        </div>
+        </div>
+    </div>
+
+</div>

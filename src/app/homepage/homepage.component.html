@@ -1,0 +1,87 @@
+<ul>
+  <li><a (click)="openBar()" style="cursor: pointer;">☰</a></li>
+  <li><a class="active" routerLink="/homepage"><img src="assets/images/home_logo.png" style="height: 30px; width:40px;"></a></li>
+  <!-- <li><a href="#news">Profile</a></li> -->
+  <li><a href="assets/recruitment_patterns.pdf" target="_blank" title="MockInterview">View Companies</a></li>
+  <div *ngIf="isAdmin()" class="addbtn"><li><button (click)="showForm()">Add User</button></li></div>
+  <!-- <li><a href="#about">About</a></li> -->
+  <div class="logout">
+  <li><a  routerLink="/login"><img src="assets/images/logout.png" style="height: 30px; width:40px;"></a></li>
+</div>
+</ul>
+<form #userForm="ngForm" (ngSubmit)="checkUser(userForm.value)">
+  <div class="overlay" *ngIf="show" >
+      <div class="content" >
+          <div class="close" (click)="closeForm()">
+             &times; 
+          </div>
+          <div class="user-box">
+        <label>Role</label> <br><br>
+        <select ngModel name="role" #role=ngModel id="role" style="background-color:transparent;  text-align:center;">
+            <option value=""></option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+            <option value="admin">Admin</option>
+        </select>
+      </div>
+         
+         <div class="user-box"><br>
+        <label>Email</label> <input type="text" ngModel name="email" id="userEmail" #email=ngModel>
+      </div>
+      
+      <div class="user-box">
+      <label>Name</label><br> <input type="text" ngModel name="name" id="userName" #name=ngModel>
+    </div>
+      
+      <div class="user-box">
+        <label>Password</label><br> <input type="password" ngModel name="password" id="pwd" #password=ngModel>
+      </div>
+       <br><br>
+        <button class="btn btn-primary" type=submit style="cursor: pointer;">Add User</button>
+      
+</div>
+</div>
+      
+  
+</form>
+<body>
+<div class="home_wp">
+  <img src="assets/images/home_wp_1.gif">
+</div>
+<!-- <div class="mydivouter">	
+	<button type="button" class="mybuttonoverlap btn btn-info">Read More</button>
+</div> -->
+<div class="container">
+  <img src="assets/images/viewCom1.png" alt="" />
+  <!-- <p class="title">card title</p> -->
+  <!-- <div class="overlay"></div> -->
+  <div class="button"><a routerLink="/companies"> View </a></div>
+</div>
+<div class="container1">
+  <img src="assets/images/sch_interv1.png" alt="" />
+  <!-- <p class="title">card title</p> -->
+  <div class="overlay1"></div>
+  <div class="button1" (click)="viewTo()" style="cursor: pointer;"><a>Schedule</a></div>
+</div>
+<div *ngIf="isFaculty()">
+<div class="wrapper" *ngIf="open">
+  <div class="sidebar">
+      <div class="closeBar" (click)="closeBar()">☰</div>
+      <div class="profile">
+          <!-- <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture"> -->
+          <h3>{{user1.name}}</h3>
+          <p>{{user1.email}}</p>
+          <div *ngFor="let row of mySlots">
+          <ul *ngFor="let slot of row.slots">
+              <li *ngIf="isFutureTime(slot.datetime)"><button>{{slot.datetime}}</button></li>
+              <li *ngIf="isPastTime(slot.datetime)"><button (click)="joinCall()">{{slot.datetime}}-join</button></li>
+              <li *ngIf="isDisable(slot.datetime)"><button disabled style="cursor: not-allowed;">{{slot.datetime}}</button></li>
+              
+          </ul>
+      </div>
+      </div>
+  </div>
+
+</div>
+</div>
+</body>
